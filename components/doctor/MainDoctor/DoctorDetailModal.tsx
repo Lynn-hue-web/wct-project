@@ -24,7 +24,7 @@ interface DoctorDetailModalProps {
   }) => void;
 }
 
-const DoctorDetailModal: React.FC<DoctorDetailModalProps> = ({ doctor, onClose, onBook }) => {
+const DoctorDetailModal: React.FC<DoctorDetailModalProps> = ({ doctor, onClose }) => {
   const [showBookingForm, setShowBookingForm] = useState(false);
   const [bookingSuccess, setBookingSuccess] = useState(false);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);

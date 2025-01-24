@@ -1,65 +1,40 @@
-'use client';
+"use client";
 
 import { useEffect, useState } from 'react';
-import { Users, Calendar, Briefcase, Layers } from 'lucide-react';
-import { useRouter } from 'next/navigation';  // For navigating to a new page
+import { Calendar, Briefcase, Layers } from 'lucide-react';
 
-interface StatsData {
-  totalUsers: number;
-  activeUsers: number;
-  lastDaySignups: number;
+interface Booking {
+  status: string;
 }
 
+
 export default function DashboardContent() {
-  const [route, setStats] = useState<StatsData | null>(null);
-  const [loading, setLoading] = useState(true);
   const [totalDoctors, setTotalDoctors] = useState<number>(0);
   const [totalServices, setTotalServices] = useState<number>(0);
   const [totalBookings, setTotalBookings] = useState<number>(0);
-  const [totalRejected, setTotalRejected] = useState<number>(0); // Add state for total rejected bookings
-
-  const router = useRouter();  // Use router for navigation
+  const [totalRejected, setTotalRejected] = useState<number>(0);
 
   useEffect(() => {
-    const fetchStats = async () => {
-      try {
-        const response = await fetch('/api/admin');
-        if (!response.ok) throw new Error('Failed to fetch');
-        const data = await response.json();
-        setStats(data);
-      } catch (error) {
-        console.error('Error:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     const calculateBookingStats = () => {
-      const storedBookings = JSON.parse(localStorage.getItem('bookingHistory') || '[]');
-      const acceptedBookings = storedBookings.filter((booking: any) => booking.status === 'Accepted');
-      const rejectedBookings = storedBookings.filter((booking: any) => booking.status === 'Rejected'); // Count rejected bookings
+      const storedBookings = JSON.parse(localStorage.getItem('bookingHistory') || '[]') as Booking[];
+      const acceptedBookings = storedBookings.filter((booking: Booking) => booking.status === 'Accepted');
+      const rejectedBookings = storedBookings.filter((booking: Booking) => booking.status === 'Rejected'); // Count rejected bookings
       setTotalBookings(acceptedBookings.length);
       setTotalRejected(rejectedBookings.length); // Set the total rejected bookings
-    };
+    };    
 
     const updateDoctorsCount = () => {
       const storedDoctors = JSON.parse(localStorage.getItem('doctors') || '[]');
       setTotalDoctors(storedDoctors.length);
     };
 
+    const updateServicesCount = () => {
+      const storedServices = JSON.parse(localStorage.getItem('services') || '[]');
+      setTotalServices(storedServices.length);
+    };
+
     updateDoctorsCount();
-    fetchStats();
-    calculateBookingStats();
-
-    // Fetch total doctors from localStorage dynamically
-    const storedDoctors = JSON.parse(localStorage.getItem('doctors') || '[]');
-    setTotalDoctors(storedDoctors.length);
-
-    // Fetch total services from localStorage dynamically
-    const storedServices = JSON.parse(localStorage.getItem('services') || '[]');
-    setTotalServices(storedServices.length);
-
-    fetchStats();
+    updateServicesCount();
     calculateBookingStats();
 
     // Listen for booking updates

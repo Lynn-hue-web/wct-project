@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 // Define the doctor type
 interface Doctor {
@@ -13,7 +14,7 @@ interface Doctor {
 const DoctorListContent = () => {
   const [doctorsList, setDoctorsList] = useState<Doctor[]>([]);
   const [isEditing, setIsEditing] = useState<number | null>(null);
-  const [deleteSuccess, setDeleteSuccess] = useState(false); // State for delete success alert
+  const [deleteSuccess, setDeleteSuccess] = useState(false);
   const [editDoctor, setEditDoctor] = useState<Doctor>({
     name: '',
     specialization: '',
@@ -29,10 +30,8 @@ const DoctorListContent = () => {
       setDoctorsList(storedDoctors);
     };
 
-    // Listen for changes in localStorage to update the doctors list
     window.addEventListener('storage', updateDoctorsList);
 
-    // Cleanup listener on unmount
     return () => {
       window.removeEventListener('storage', updateDoctorsList);
     };
@@ -43,14 +42,12 @@ const DoctorListContent = () => {
     setDoctorsList(updatedDoctors);
     localStorage.setItem('doctors', JSON.stringify(updatedDoctors));
 
-
     const event = new Event('storage');
     window.dispatchEvent(event);
 
-    // Show success alert
     setDeleteSuccess(true);
     setTimeout(() => {
-      setDeleteSuccess(false); // Hide the alert after 3 seconds
+      setDeleteSuccess(false);
     }, 3000);
   };
 
@@ -97,7 +94,6 @@ const DoctorListContent = () => {
     <div className="min-h-screen bg-gray-100 p-8">
       <h1 className="text-2xl font-bold mb-6 text-center">Doctors List</h1>
       
-      {/* Success Alert */}
       {deleteSuccess && (
         <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
           Doctor deleted successfully!
@@ -108,11 +104,14 @@ const DoctorListContent = () => {
         {doctorsList.map((doctor, index) => (
           <div key={index} className="bg-white shadow-md rounded-lg p-4 flex flex-col justify-between">
             <div className="flex flex-col items-center">
-              <img
-                src={doctor.image || 'https://via.placeholder.com/150'}
-                alt={doctor.name}
-                className="rounded-full w-24 h-24 object-cover mb-4"
-              />
+              <div className="relative rounded-full w-24 h-24 mb-4">
+                <Image
+                  src={doctor.image || 'https://via.placeholder.com/150'}
+                  alt={doctor.name}
+                  fill
+                  className="rounded-full object-cover"
+                />
+              </div>
               {isEditing === index ? (
                 <div className="w-full">
                   <input

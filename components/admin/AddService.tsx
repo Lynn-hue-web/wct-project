@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 interface Service {
   name: string;
@@ -33,20 +34,13 @@ const AddService: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Get existing services from localStorage
     const existingServices = JSON.parse(localStorage.getItem('services') || '[]') as Service[];
-
-    // Add the new service
     const updatedServices = [...existingServices, service];
     localStorage.setItem('services', JSON.stringify(updatedServices));
 
-    // Show notification
     setNotification('Service added successfully!');
-
-    // Reset the form
     setService({ name: '', description: '', image: null });
 
-    // Clear the notification after 3 seconds
     setTimeout(() => {
       setNotification(null);
     }, 3000);
@@ -56,14 +50,12 @@ const AddService: React.FC = () => {
     <div className="min-h-screen bg-gray-100 p-8">
       <h1 className="text-2xl font-bold mb-6 text-center">Add Service</h1>
 
-      {/* Notification */}
       {notification && (
         <div className="mb-4 px-4 py-2 bg-green-100 text-green-700 border border-green-400 rounded-md text-center">
           {notification}
         </div>
       )}
 
-      {/* Form */}
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-6 max-w-md mx-auto">
         <div className="mb-4">
           <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
@@ -109,11 +101,14 @@ const AddService: React.FC = () => {
             accept="image/*"
           />
           {service.image && (
-            <img
-              src={service.image}
-              alt="Service Preview"
-              className="mt-4 w-full h-40 object-cover rounded-lg"
-            />
+            <div className="mt-4 w-full h-40 relative">
+              <Image
+                src={service.image}
+                alt="Service Preview"
+                fill
+                className="object-cover rounded-lg"
+              />
+            </div>
           )}
         </div>
 

@@ -22,12 +22,12 @@ const AppointmentsContent: React.FC = () => {
 
   // Function to fetch bookings from localStorage
   const fetchAppointments = () => {
-    const storedBookings = JSON.parse(localStorage.getItem('bookingHistory') || '[]');
-    const transformedAppointments = storedBookings.map((booking: any, index: number) => ({
+    const storedBookings = JSON.parse(localStorage.getItem('bookingHistory') || '[]') as Appointment[];
+    const transformedAppointments = storedBookings.map((booking: Appointment, index: number) => ({
       id: index + 1,
       doctorName: booking.doctorName,
       doctorImage: booking.doctorImage,
-      bookingTime: `${booking.date} ${booking.time}`,
+      bookingTime: `${booking.bookingTime}`,
       userName,
       userEmail,
       status: booking.status || 'Pending', // Correctly read status from stored booking
@@ -35,6 +35,7 @@ const AppointmentsContent: React.FC = () => {
     console.log(transformedAppointments); // Debug log to ensure correct data
     setAppointments(transformedAppointments);
   };
+  
 
   // Load appointments on mount
   useEffect(() => {

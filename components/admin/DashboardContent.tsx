@@ -10,6 +10,10 @@ interface StatsData {
   lastDaySignups: number;
 }
 
+interface Booking {
+  status: string;
+}
+
 export default function DashboardContent() {
   const [route, setStats] = useState<StatsData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -35,9 +39,9 @@ export default function DashboardContent() {
     };
 
     const calculateBookingStats = () => {
-      const storedBookings = JSON.parse(localStorage.getItem('bookingHistory') || '[]');
-      const acceptedBookings = storedBookings.filter((booking: any) => booking.status === 'Accepted');
-      const rejectedBookings = storedBookings.filter((booking: any) => booking.status === 'Rejected'); // Count rejected bookings
+      const storedBookings = JSON.parse(localStorage.getItem('bookingHistory') || '[]') as Booking[];
+      const acceptedBookings = storedBookings.filter((booking) => booking.status === 'Accepted');
+      const rejectedBookings = storedBookings.filter((booking) => booking.status === 'Rejected'); // Count rejected bookings
       setTotalBookings(acceptedBookings.length);
       setTotalRejected(rejectedBookings.length); // Set the total rejected bookings
     };

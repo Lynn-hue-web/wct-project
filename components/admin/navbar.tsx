@@ -1,11 +1,19 @@
 import React from 'react';
+import Image from 'next/image';
 
 const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
       {/* Logo on the left */}
       <div className="navbar-logo">
-        <img src="/image/logo3.png" alt="Logo" className="logo-image" />
+        <div className="relative w-full h-full">
+          <Image 
+            src="/image/logo3.png" 
+            alt="Logo" 
+            fill
+            className="logo-image object-contain"
+          />
+        </div>
       </div>
 
       {/* Profile button on the right */}

@@ -3,10 +3,9 @@
 import React from 'react';
 import './mainbody.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { features } from 'process';
 import { useAuth } from "@clerk/nextjs";
 
-const page = () => {
+export default function Page() {
 
     const { isLoaded, isSignedIn } = useAuth();
 
@@ -108,7 +107,7 @@ const page = () => {
                                 </h1>
                                 <h3>Secure communication and all data backed daily</h3>
                                 <p>
-                                    We use the latest security technologies to protect your data and our clients' information. We've implemented two-factor authentication, SSL/TLS encryption, and regular security audits.
+                                    We use the latest security technologies to protect your data and our clients information. Weve implemented two-factor authentication, SSL/TLS encryption, and regular security audits.
                                 </p>
                                 <a href="#" className="learn-more">Learn More</a>
                             </div>
@@ -187,5 +186,4 @@ const page = () => {
         </main>
     )
 }
-
-export default page
+ 

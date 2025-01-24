@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import '../admin/style/DoctorList.css'; // Import a CSS file for styles
+import Image from 'next/image';
+import '../admin/style/DoctorList.css';
 
-// Define a type for the doctor object
 interface Doctor {
   name: string;
   specialization: string;
   contact: string;
-  image?: string; // Base64-encoded string for image
+  image?: string;
 }
 
 const AddDoctorContent = () => {
@@ -16,7 +16,7 @@ const AddDoctorContent = () => {
     contact: '',
     image: '',
   });
-  const [showSuccess, setShowSuccess] = useState(false); // State for success notification
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -41,9 +41,8 @@ const AddDoctorContent = () => {
     localStorage.setItem('doctors', JSON.stringify(updatedDoctors));
 
     setDoctor({ name: '', specialization: '', contact: '', image: '' });
-    setShowSuccess(true); // Show success notification
+    setShowSuccess(true);
 
-    // Hide the notification after 3 seconds
     setTimeout(() => setShowSuccess(false), 3000);
   };
 
@@ -98,7 +97,7 @@ const DoctorListContent = () => {
   useEffect(() => {
     const storedDoctors = JSON.parse(localStorage.getItem('doctors') || '[]') as Doctor[];
     setDoctorsList(storedDoctors);
-  }, []); // Fetch doctors from localStorage on initial load
+  }, []);
 
   const handleDelete = (index: number) => {
     const updatedDoctors = doctorsList.filter((_, i) => i !== index);
@@ -112,11 +111,15 @@ const DoctorListContent = () => {
       <div className="doctor-cards">
         {doctorsList.map((doctor, index) => (
           <div key={index} className="doctor-card">
-            <img
-              src={doctor.image || 'https://via.placeholder.com/150'}
-              alt={doctor.name}
-              className="doctor-image"
-            />
+            <div className="doctor-image-container">
+              <Image
+                src={doctor.image || 'https://via.placeholder.com/150'}
+                alt={doctor.name}
+                width={150}
+                height={150}
+                className="doctor-image"
+              />
+            </div>
             <div className="doctor-details">
               <h2>{doctor.name}</h2>
               <p><strong>Specialization:</strong> {doctor.specialization}</p>
@@ -132,5 +135,4 @@ const DoctorListContent = () => {
   );
 };
 
-// Export both components
 export { AddDoctorContent, DoctorListContent };

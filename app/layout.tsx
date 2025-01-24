@@ -1,17 +1,14 @@
 import { ClerkProvider } from '@clerk/nextjs';
 import '../app/style/globals.css';
 import { Roboto } from 'next/font/google';
-import { Montserrat } from 'next/font/google';
+
 
 const roboto = Roboto({
   subsets: ['latin'],
   weight: ['400', '700'],
 });
 
-const montserrat = Montserrat({
-  subsets: ['latin'],
-  weight: ['300', '400', '700'],
-});
+
 
 export const metadata = {
   title: 'Hospital Services',

@@ -1,11 +1,20 @@
-'use client';
+"use client";
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+
+interface Booking {
+  doctorImage?: string;
+  doctorName?: string;
+  date: string;
+  time: string;
+  createdAt: string;
+}
 
 const BookingHistory = () => {
-    const [bookings, setBookings] = useState<any[]>([]);
+    const [bookings, setBookings] = useState<Booking[]>([]);
 
     useEffect(() => {
-        const storedBookings = JSON.parse(localStorage.getItem('bookingHistory') || '[]');
+        const storedBookings = JSON.parse(localStorage.getItem('bookingHistory') || '[]') as Booking[];
         setBookings(storedBookings);
     }, []);
 
@@ -25,11 +34,15 @@ const BookingHistory = () => {
                             key={index}
                             className="border p-4 rounded-lg shadow-md flex items-start gap-4"
                         >
-                            <img
-                                src={booking.doctorImage || '/placeholder.png'}
-                                alt={booking.doctorName || 'Doctor'}
-                                className="w-16 h-16 rounded-full object-cover"
-                            />
+                            <div className="relative w-16 h-16">
+                                <Image
+                                    src={booking.doctorImage || '/placeholder.png'}
+                                    alt={booking.doctorName || 'Doctor'}
+                                    width={64}
+                                    height={64}
+                                    className="rounded-full object-cover"
+                                />
+                            </div>
                             <div className="flex-1">
                                 <h2 className="text-lg font-semibold">{booking.doctorName || 'Unknown Doctor'}</h2>
                                 <p className="text-gray-600">Appointment Date: {booking.date}</p>

@@ -1,4 +1,5 @@
 'use client';
+
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import './ServicesNav.css';
@@ -10,7 +11,7 @@ const Nav = () => {
     const [notifications, setNotifications] = useState<{ date: string; time: string; bookedAt: string }[]>([]);
     const [showDropdown, setShowDropdown] = useState(false);
     const [showFeedbackForm, setShowFeedbackForm] = useState(false);
-    const [feedbackSuccess, setFeedbackSuccess] = useState(false); // New state for feedback notification
+     // New state for feedback notification
 
     const fetchNotifications = () => {
         const storedNotifications = JSON.parse(localStorage.getItem('bookingHistory') || '[]');
