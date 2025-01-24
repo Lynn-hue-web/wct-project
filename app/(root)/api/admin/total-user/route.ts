@@ -9,7 +9,7 @@ export async function GET() {
       success: true, 
       total: totalUsers 
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { 
         success: false, 

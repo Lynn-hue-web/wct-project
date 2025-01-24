@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
 interface Appointment {
   id: string;
@@ -9,15 +9,16 @@ interface Appointment {
   status: 'scheduled' | 'completed' | 'cancelled';
 }
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
+    // TODO: Replace with actual appointments fetch logic
     const appointments: Appointment[] = [];
     
     return NextResponse.json({ 
       success: true, 
       appointments 
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { 
         success: false, 
@@ -28,15 +29,16 @@ export async function GET(request: NextRequest) {
   }
 }
 
-export async function POST(request: NextRequest) {
+export async function POST(request: Request) {
   try {
-    const data = await request.json() as Appointment;
+    // TODO: Add appointment creation logic when database is set up
+    await request.json();
     
     return NextResponse.json({ 
       success: true, 
       message: 'Appointment created successfully' 
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { 
         success: false, 
