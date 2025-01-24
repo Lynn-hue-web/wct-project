@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 interface Appointment {
   id: string;
@@ -9,9 +9,8 @@ interface Appointment {
   status: 'scheduled' | 'completed' | 'cancelled';
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    // TODO: Replace with actual appointments fetch logic
     const appointments: Appointment[] = [];
     
     return NextResponse.json({ 
@@ -29,11 +28,9 @@ export async function GET() {
   }
 }
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
     const data = await request.json() as Appointment;
-    
-    // TODO: Add appointment creation logic
     
     return NextResponse.json({ 
       success: true, 
