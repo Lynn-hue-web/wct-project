@@ -1,0 +1,314 @@
+main {
+    font-family: "Montserrat", serif;
+    background-color: #f2f5fa;
+}
+
+.hero-banner {
+    width: 100%;
+    height: 100vh;
+    padding: 50px 0;
+    background-color: white;
+}
+
+.row {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.col-6 {
+    width: 50%;
+    height: 500px;
+}
+
+.hero-banner .banner-inform {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding: 60px 20px;
+    padding-top: 100px;
+}
+
+.hero-banner .banner-inform h1 {
+    font-size: 36px;
+    color: #0B3052;
+}
+
+.hero-banner .banner-inform h1 span {
+    color: #06ADEF;
+}
+
+.hero-banner .banner-inform p {
+    font-size: 20px;
+    color: #798291;
+    padding-block: 40px 40px;
+}
+
+.hero-banner .banner-inform a {
+    font-size: 16px;
+    color: white;
+    background-color: rgba(239,20,132,255); 
+    text-decoration: none;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 40px;
+    text-align: center;
+    display: block;
+    transition: .3s;
+}
+
+.hero-banner .banner-inform a:hover {
+    background-color: #fc6767;
+    color: white;
+}
+
+.hero-banner .banner-image-right {
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../public/image/mainBanner/banner-image.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+/* end herobanner section */
+
+/* start our feature */
+.features-section {
+    width: 100%;
+    height: 100vh;
+    padding-block: 30px;
+
+}
+
+.features-section h1 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.features-section h1 span {
+    color: #06ADEF;
+}
+
+.col-4 {
+    width: 33.33%;
+    height: 300px;
+    padding: 10px;
+}
+
+
+
+.card {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    padding: 30px;
+    transition:.3s ease-in-out;
+    
+}
+
+.features-section .feature-icon {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    transition: .3s;
+}
+
+.col-4:hover .feature-icon {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+}
+
+.features-section .feature-icon::before {
+    content: '';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 35px;
+    color: #06ADEF;
+}
+
+.features-section .col-4:nth-child(1) .feature-icon::before {
+    content: "\e4e5"; 
+}
+
+.features-section .col-4:nth-child(2) .feature-icon::before {
+    content: "\f0e0";
+    color: #0B3052; 
+}
+
+.features-section .col-4:nth-child(3) .feature-icon::before {
+    content: "\f007"; 
+}
+.features-section .col-4:nth-child(4) .feature-icon::before {
+    content: "\f0f3"; 
+    color: #0B3052;
+}
+.features-section .col-4:nth-child(5) .feature-icon::before {
+    content: "\f00a"; 
+}
+.features-section .col-4:nth-child(6) .feature-icon::before {
+    content: "\f3ce"; 
+    color: #0B3052;
+}
+
+
+.features-section h2 {
+    padding: 10px 0 20px 0;
+    font-size: 20px;
+    color: #0B3052;
+}
+
+.features-section .col-4:nth-child(2) h2 {
+    color: #06ADEF;
+}
+.features-section .col-4:nth-child(4) h2 {
+    color: #06ADEF;
+}
+.features-section .col-4:nth-child(6) h2 {
+    color: #06ADEF;
+}
+
+.features-section p {
+    font-size: 14px;
+    color: #798291;
+}
+
+.col-4:hover .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+    transform: translateY(-10px);
+}
+
+/* end our features */
+
+/* start security section */
+
+.security-banner {
+    width: 100%;
+    height: 600px;
+    background-color: white;
+    padding-block: 80px;
+}
+
+.security-banner .security-image {
+    width: 100%;
+    height: 100%;
+    background-image:url('../../../public/image/mainBanner/securitybanner/security-sec2.png');
+    background-position: center center;
+    background-size: cover;
+}
+
+.security-banner .flex-sec-inform{
+    display: flex;
+    align-items: center;
+}
+
+.security-banner .security-inform h1 {
+    font-size: 38px;
+    color: #06ADEF;
+}
+.security-banner .security-inform span {
+    font-size: 38px;
+    color: #0B3052;
+}
+.security-banner .security-inform h3 {
+    font-size: 20px;
+    color: #0B3052;
+}
+.security-banner .security-inform p {
+    font-size: 16px;
+    color: #798291;
+    padding-block: 20px;
+    line-height: 25px;
+}
+.security-banner .security-inform a {
+    font-size: 16px;
+    color: #06ADEf; 
+    text-decoration: none;
+    border: 1px solid #06ADEf;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 40px;
+    text-align: center;
+    display: block;
+}
+
+/* end scurity */
+
+/* start peace */
+
+.peace-option {
+    width: 100%;
+    height: 100vh;
+    padding-block: 30px;
+}
+
+.peace-option h1 {
+   text-align: center;
+   padding-block: 40px 60px;
+   color:black ;
+   font-size: 30px;
+}
+
+.r-pad {
+    justify-content: space-between;
+    display: flex;
+}
+
+.peace-option .wrapped-peace {
+    width: 49%;
+    height: 200px;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+}
+
+.peace-option .wrapped-peace .flex-icon {
+    display: flex;
+}
+
+.peace-option .wrapped-peace .flex-icon i {
+    background-color: white;
+    outline: 1px solid #06ADEF;
+    padding: 20px;
+    border-radius: 100%;
+    font-size: 40px;
+    color: #06ADEF;
+    margin-right: 20px;
+}
+
+.peace-option .wrapped-peace:nth-child(2) .flex-icon i {
+    padding-inline: 26px;
+}
+
+.peace-option .wrapped-peace:nth-child(3) .flex-icon i {
+    padding-inline: 26px;
+}
+
+.peace-option .wrapped-peace:last-child .flex-icon i {
+    padding-inline: 26px;
+}
+
+.peace-option .wrapped-peace .flex-icon .peace-details h2 {
+    font-size: 24px;
+    color:#0B3052;
+    margin-bottom: 10px;
+}
+.peace-option .wrapped-peace .flex-icon .peace-details p {
+    font-size: 14px;
+    color: #798291;
+}
+
+
+
+

@@ -1,0 +1,240 @@
+.booking {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f4f6;
+}
+
+.booking-container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.booking-form {
+  flex: 1;
+  padding: 2rem;
+}
+
+.booking-form h2 {
+  color: #1f2937;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.booking-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.booking-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.booking-form input {
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.booking-form input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.booking-form button {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.booking-form button:hover {
+  background-color: #2563eb;
+}
+
+/* Success Modal Styles */
+.success-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.success-modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease-out;
+}
+
+.success-modal h3 {
+  color: #059669;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+.success-modal p {
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+}
+
+.appointment-date {
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.redirect-message {
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
+
+/* Checkmark Animation */
+.success-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.checkmark {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #059669;
+  stroke-miterlimit: 10;
+  box-shadow: inset 0 0 0 #059669;
+  animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+}
+
+.checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #059669;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes scale {
+  0%, 100% { transform: none; }
+  50% { transform: scale3d(1.1, 1.1, 1); }
+}
+
+@keyframes fill {
+  100% { box-shadow: inset 0 0 0 80px #059669; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .booking-container {
+    flex-direction: column;
+    margin: 1rem;
+  }
+
+  .booking-form {
+    padding: 1.5rem;
+  }
+}
+
+/* Add these styles to your existing booking.css */
+
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.toast {
+  background: #4CAF50;
+  color: white;
+  padding: 16px 24px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.toast-success {
+  background: #4CAF50;
+}
+
+.toast-icon {
+  margin-right: 12px;
+}
+
+.toast-message {
+  font-size: 16px;
+}

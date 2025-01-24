@@ -1,0 +1,130 @@
+/* Admin Layout */
+.admin-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    width: 200px;
+    height: 60px;
+  }
+  
+  .logo-image {
+    width: 100%;
+    margin-right: 10px;
+  }
+  
+  .navbar-profile {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-btn {
+    background: #fff;
+    color: #007bff;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid #007bff; 
+  }
+  
+  .profile-btn:hover {
+    background: #0056b3;
+    color: #fff;
+  }
+  
+  /* Main Layout */
+  .main-layout {
+    display: flex;
+    flex: 1;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 250px;
+    background: #f4f4f4;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    
+  }
+  
+  .sidebar-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .sidebar-item i {
+    margin-right: 20px;
+    font-size: 20px;
+  }
+  
+  .sidebar-item:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  
+  .sidebar-item:hover i {
+    color: #fff;
+  }
+  
+  /* Content */
+  .content {
+    flex: 1;
+    padding: 20px;
+    background: #f9f9f9;
+  }
+  
+
+  .stats-container {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .stat-card {
+    flex: 1;
+    background: #007bff;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .stat-card h2 {
+    font-size: 32px;
+    margin: 0;
+  }
+  
+  .stat-card p {
+    margin: 5px 0 0;
+  }
+
+  
